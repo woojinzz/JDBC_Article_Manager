@@ -22,7 +22,6 @@ public class Main {
 			String  cmd = sc.nextLine().trim();
 			
 			if (cmd.equals("exit")){
-				System.out.println("===== 프로그램 종료 ======");
 				break;
 			}
 			
@@ -35,7 +34,6 @@ public class Main {
 				String title = sc.nextLine();
 				System.out.print("내용 : ");
 				String body = sc.nextLine();
-				
 				
 				Article article = new Article(lastArticleId, title, body);
 				articles.add(article);
@@ -63,6 +61,8 @@ public class Main {
 				System.out.println("존재하지 않는 명령어 입니다.");
 			}
 		}
+		sc.close();
+		System.out.println("==프로그램 종료==");
 	}
 }
 
