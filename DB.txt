@@ -10,3 +10,14 @@ CREATE TABLE article(
 	`body` text NOT NULL 
 );
 
+ALTER DATABASE jam CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE article CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+SELECT * FROM ARTICLE;
+
+INSERT INTO ARTICLE 
+SET REGDATE = NOW(), 
+UPDATEDATE  = NOW(),
+TITLE = '제목2',
+`body` = '내용2';
+
