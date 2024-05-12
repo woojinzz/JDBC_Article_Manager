@@ -2,6 +2,7 @@ DROP DATABASE IF EXISTS JAM;
 CREATE DATABASE JAM;
 USE JAM;
 
+
 CREATE TABLE article(
 	id int UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	regDate datetime NOT NULL,
@@ -13,11 +14,46 @@ CREATE TABLE article(
 ALTER DATABASE jam CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ALTER TABLE article CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-SELECT * FROM ARTICLE;
+CREATE TABLE `member`(
+	id int UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	regDate datetime NOT NULL,
+	updateDate datetime NOT NULL,
+	loginId varchar(50) NOT NULL,
+	loginPw varchar(100) NOT NULL,
+	`name` varchar(20) NOT NULL
+);
+
+ALTER DATABASE jam CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE `member` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 INSERT INTO ARTICLE 
 SET REGDATE = NOW(), 
 UPDATEDATE  = NOW(),
 TITLE = '제목2',
 `body` = '내용2';
+
+TRUNCATE ARTICLE; 
+
+INSERT INTO `member` 
+SET REGDATE = NOW(), 
+UPDATEDATE  = NOW(),
+loginId = 'test',
+loginPw = '1234',
+`name` = '홍길동';
+
+SELECT * FROM ARTICLE;
+SELECT * FROM `member`;
+
+
+
+UPDATE ARTICLE 
+SET REGDATE = NOW(), UPDATEDATE = NOW(), TITLE = '수정 게시글', BODY = '수정 내용'
+WHERE id = 1;
+
+
+
+
+
+
+
 
