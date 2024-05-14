@@ -23,8 +23,15 @@ CREATE TABLE `member`(
 	`name` varchar(20) NOT NULL
 );
 
+
 ALTER DATABASE jam CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ALTER TABLE `member` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+ALTER TABLE `member` MODIFY COLUMN loginId VARCHAR(50) NOT NULL UNIQUE;
+
+
+DESC `member`;
+
 
 INSERT INTO ARTICLE 
 SET REGDATE = NOW(), 
